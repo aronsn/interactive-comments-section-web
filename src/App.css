@@ -1,42 +1,25 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@font-face {
+  font-family: 'Rubik';
+  src: url('../public/fonts/Rubik-Regular.ttf') format('truetype'),
+  url('../public/fonts/Rubik-Medium.ttf') format('truetype'), 
+  url('../public/fonts/Rubik-bold.ttf') format('truetype');
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+    /* Primary colors */
+    --morderate-blue: 238, 40%, 52%;
+    --soft-red: 358, 79%, 66%;
+    --light-grayish-blue: 239, 57%, 85%;
+    --pale-red: 357, 100%, 86%;
+
+    /* Neutral */
+    --dark-blue: 212, 24%, 26%;
+    --grayish-blue: 211, 10%, 45%;
+    --light-gray: 223, 19%, 93%;
+    --very-light-gray: 228, 33%, 97%;
+    --white: 0, 0%, 100%;
+
+    /* Typography */
+    --fs-paragraphs: 16px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
