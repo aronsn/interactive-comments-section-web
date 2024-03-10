@@ -7,15 +7,16 @@ function App() {
 
   return (
     <div className="thread">
-      <Comment
-        profileSrc={data.currentUser.image.png}
-        username={data.currentUser.username}
-        date={'1 week'}
-        comment={
-          "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well."
-        }
-        feedbackCount={0}
-      />
+      {data.comments.map((comment) => (
+        <Comment
+          key={comment.id}
+          userImage={comment.user.image.png}
+          username={comment.user.username}
+          createdAt={comment.createdAt}
+          comment={comment.content}
+          score={comment.score}
+        />
+      ))}
     </div>
   );
 }
