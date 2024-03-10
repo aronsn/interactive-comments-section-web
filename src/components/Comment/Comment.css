@@ -1,7 +1,8 @@
 .card {
-   padding: var(--spacing-sm);
     background-color: hsl(var(--white));
     border-radius: 6px;
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -88,8 +89,6 @@
     fill: hsl(var(--morderate-blue));
 }
 
-
-
 .card__reply-button svg{
    margin-right: 8px;
 }
@@ -131,15 +130,17 @@
     .card__feedback {
         flex-direction: column;  
         padding: 0 2px;
+        width: 40px;
     }
 
-  
+    .card__feedback-number {
+        margin: 0 auto;
+    }
 
     .card__feedback-button svg {
         height: 10px;
     }
     
-
     .card__feedback-button svg{
         margin: auto;
     }
@@ -147,5 +148,4 @@
     .card__reply-button {
         padding-bottom: 16px;
     }
-
 }
