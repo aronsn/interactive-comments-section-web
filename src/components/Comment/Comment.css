@@ -47,6 +47,11 @@
     color: hsl(var(--grayish-blue));
     margin-bottom: var(--spacing-sm);
 }
+.card__paragraph span {
+    color: hsl(var(--morderate-blue));
+    font-weight: 600;
+}
+
 
 .card__feedback {
     grid-area: feedback;
@@ -115,7 +120,6 @@
 
 @media (min-width: 376px) {
     .card {
-        max-width: 680px;
         padding: var(--spacing-md);
         grid-template-columns: 64px 1fr 1fr 1fr;
         grid-template-areas: 

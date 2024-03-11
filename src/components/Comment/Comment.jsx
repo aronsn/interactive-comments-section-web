@@ -1,6 +1,6 @@
 import './Comment.css';
 
-export default function Comment({ userImage, username, createdAt, comment, score }) {
+export function Comment({ originalPoster, userImage, username, createdAt, comment, score }) {
   return (
     <section className="card">
       <div className="card__flex-header">
@@ -9,7 +9,10 @@ export default function Comment({ userImage, username, createdAt, comment, score
           {username} <span className="card__published-date">{createdAt}</span>
         </p>
       </div>
-      <p className="card__paragraph">{comment}</p>
+      <p className="card__paragraph">
+        {originalPoster ? <span>@{originalPoster}</span> : null}
+        &nbsp;{comment}
+      </p>
       <div className="card__feedback">
         <button className="card__feedback-button ">
           <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
