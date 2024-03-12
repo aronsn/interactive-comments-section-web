@@ -1,0 +1,32 @@
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    width: 80px;
+
+    
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+.button svg{
+    width: 14px;
+    height: 14px;
+   
+}
+
+.svg-container {
+    width: 100px;
+}
+
+.button__icon{
+    
+}
+
+.button:hover{
+    cursor: pointer;
+    transition: 0.1s ease;
+    opacity: 0.5;
+}
