@@ -58,9 +58,8 @@ body {
 
 .comment-section {
     margin: var(--spacing-sm);
+    max-width: 725px;
 }
-
-
 
 @media (min-width: 375px) {
     body {
@@ -68,5 +67,4 @@ body {
         display: grid;
         place-items: center;
     }
-    
 }
