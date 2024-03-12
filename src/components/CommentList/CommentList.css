@@ -1,9 +1,14 @@
-.main-thread {
-    max-width: 680px;
+.sub-thread {
+    padding-left: var(--spacing-sm);
+    border-left: 2px solid hsl(var( --light-gray));
+    height: 90%;
 }
 
-.sub-thread {
-    padding-left: var(--spacing-xl);
-    margin-left: var(--spacing-xl);
-    border-left: 2px solid hsl(var( --light-gray));
+@media (min-width: 376px) {
+    .sub-thread {
+        padding-left: var(--spacing-xl);
+        margin-left: var(--spacing-xl);
+        border-left: 2px solid hsl(var( --light-gray));
+        height: 90%;
+    }
 }

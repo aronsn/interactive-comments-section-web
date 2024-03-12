@@ -4,11 +4,12 @@ import './CommentList.css';
 
 export function CommentList({ comments }) {
   return (
-    <div className="main-thread">
+    <div className="thread">
       {comments
         ? comments.map((comment) => (
             <Fragment key={comment.id}>
               <Comment
+                currentUser={comment.user.username === 'juliusomo'}
                 userImage={comment.user.image.png}
                 username={comment.user.username}
                 createdAt={comment.createdAt}
@@ -21,7 +22,8 @@ export function CommentList({ comments }) {
                   ? comment.replies.map((reply) => (
                       <Comment
                         key={reply.id}
-                        originalPoster={comment.user.username}
+                        currentUser={reply.user.username === 'juliusomo'}
+                        replyingTo={reply.replyingTo}
                         userImage={reply.user.image.png}
                         username={reply.user.username}
                         createdAt={reply.createdAt}
