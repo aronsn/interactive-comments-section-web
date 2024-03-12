@@ -14,15 +14,10 @@
 .button svg{
     width: 14px;
     height: 14px;
-   
 }
 
 .svg-container {
     width: 100px;
-}
-
-.button__icon{
-    
 }
 
 .button:hover{
