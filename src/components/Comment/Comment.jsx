@@ -1,17 +1,22 @@
+import { Fragment } from 'react';
+import { Button } from '../Button/Button';
+import { replySvg, editSvg, deleteSvg } from '../../utils/importAssets';
 import './Comment.css';
 
-export function Comment({ originalPoster, userImage, username, createdAt, comment, score }) {
+export function Comment({ currentUser, replyingTo, userImage, username, createdAt, comment, score }) {
   return (
     <section className="card">
       <div className="card__flex-header">
         <img className="card__picture" src={userImage} alt="profile-picture" />
         <p className="card__name">
-          {username} <span className="card__published-date">{createdAt}</span>
+          {username}
+          {currentUser ? <span className="card__tag">you</span> : null}
+          <span className="card__createdAt">{createdAt}</span>
         </p>
       </div>
       <p className="card__paragraph">
-        {originalPoster ? <span>@{originalPoster}</span> : null}
-        &nbsp;{comment}
+        {replyingTo ? <span>@{replyingTo}&nbsp;</span> : null}
+        {comment}
       </p>
       <div className="card__feedback">
         <button className="card__feedback-button ">
@@ -26,12 +31,16 @@ export function Comment({ originalPoster, userImage, username, createdAt, commen
           </svg>
         </button>
       </div>
-      <button className="card__reply-button card--color-blue">
-        <svg width="14" height="13" xmlns="http://www.w3.org/2000/svg">
-          <path d="M.227 4.316 5.04.16a.657.657 0 0 1 1.085.497v2.189c4.392.05 7.875.93 7.875 5.093 0 1.68-1.082 3.344-2.279 4.214-.373.272-.905-.07-.767-.51 1.24-3.964-.588-5.017-4.829-5.078v2.404c0 .566-.664.86-1.085.496L.227 5.31a.657.657 0 0 1 0-.993Z" />
-        </svg>
-        Reply
-      </button>
+      <div className="card__button-group">
+        {currentUser ? (
+          <Fragment>
+            <Button className="card__delete" placeholder={'Delete'} iconSvg={deleteSvg} />
+            <Button className="card__edit" placeholder={'Edit'} iconSvg={editSvg} />
+          </Fragment>
+        ) : (
+          <Button className="card__reply" placeholder={'Reply'} iconSvg={replySvg} />
+        )}
+      </div>
     </section>
   );
 }
