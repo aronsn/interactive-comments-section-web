@@ -1,11 +1,12 @@
 import React from 'react';
 import './Button.css';
 
-export function Button({ className, iconSvg, placeholder, onClick }) {
+export function Button({ children, className, iconSvg, onClick, type }) {
+  const checkType = type === 'icon-button' ? 'icon' : null || type === 'box-button' ? 'box' : null;
   return (
-    <button onClick={onClick} className={`button ${className ?? ''}`}>
-      {iconSvg}
-      {placeholder}
+    <button onClick={onClick ? onClick : null} className={`${checkType} ${className ? className : ''}`}>
+      {iconSvg ? iconSvg : null}
+      {children}
     </button>
   );
 }

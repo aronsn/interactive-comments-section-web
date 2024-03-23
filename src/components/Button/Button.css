@@ -1,4 +1,4 @@
-.button {
+.icon {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,7 +11,7 @@
     font-weight: 600;
 }
 
-.button svg{
+.icon svg{
     width: 14px;
     height: 14px;
 }
@@ -20,8 +20,25 @@
     width: 100px;
 }
 
-.button:hover{
+.icon:hover{
     cursor: pointer;
     transition: 0.1s ease;
     opacity: 0.5;
+}
+
+.box {
+    grid-area: button;
+    font-size: var(--fs-paragraphs);
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    background-color: hsl(var(--morderate-blue));
+    color: hsl(var( --white));
+}
+
+.box:hover {
+    opacity: 0.5;
+    cursor: pointer;
+
 }
