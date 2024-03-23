@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { CommentInput } from '../CommentInput/CommentInput';
 import { Button } from '../Button/Button';
-import { replySvg, editSvg, deleteSvg } from '../../utils/importAssets';
+import { replySvg, editSvg, deleteSvg } from '../../utils/exportAssets';
 import './Comment.css';
 
 export function Comment({
