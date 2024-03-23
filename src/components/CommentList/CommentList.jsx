@@ -2,14 +2,15 @@ import React, { Fragment } from 'react';
 import { Comment } from '../Comment/Comment';
 import './CommentList.css';
 
-export function CommentList({ comments }) {
+export function CommentList({ comments, currentUserImage }) {
   return (
-    <div className="thread">
+    <div className="comments">
       {comments
         ? comments.map((comment) => (
             <Fragment key={comment.id}>
               <Comment
                 currentUser={comment.user.username === 'juliusomo'}
+                currentUserImage={currentUserImage}
                 userImage={comment.user.image.png}
                 username={comment.user.username}
                 createdAt={comment.createdAt}
@@ -17,12 +18,13 @@ export function CommentList({ comments }) {
                 score={comment.score}
               />
 
-              <div className="sub-thread">
+              <div className="comments__sub-section">
                 {comment.replies
                   ? comment.replies.map((reply) => (
                       <Comment
                         key={reply.id}
-                        currentUser={reply.user.username === 'juliusomo'}
+                        isCurrentUser={reply.user.username === 'juliusomo'}
+                        currentUserImage={currentUserImage}
                         replyingTo={reply.replyingTo}
                         userImage={reply.user.image.png}
                         username={reply.user.username}

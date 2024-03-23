@@ -1,11 +1,11 @@
-.sub-thread {
+.comments__sub-section {
     padding-left: var(--spacing-sm);
     border-left: 2px solid hsl(var( --light-gray));
     height: 90%;
 }
 
 @media (min-width: 376px) {
-    .sub-thread {
+    .comments__sub-section {
         padding-left: var(--spacing-xl);
         margin-left: var(--spacing-xl);
         border-left: 2px solid hsl(var( --light-gray));
