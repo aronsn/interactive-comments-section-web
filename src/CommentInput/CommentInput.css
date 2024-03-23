@@ -34,19 +34,6 @@
 
 .form__button {
     grid-area: button;
-    font-size: var(--fs-paragraphs);
-    height: 50px;
-    width: 100px;
-    border: none;
-    border-radius: 8px;
-    background-color: hsl(var(--morderate-blue));
-    color: hsl(var( --white));
-}
-
-.form__button:hover {
-    opacity: 0.5;
-    cursor: pointer;
-
 }
 
 .form__input:focus-visible {

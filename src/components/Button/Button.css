@@ -27,7 +27,6 @@
 }
 
 .box {
-    grid-area: button;
     font-size: var(--fs-paragraphs);
     height: 50px;
     width: 100px;
