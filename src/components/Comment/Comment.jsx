@@ -47,16 +47,23 @@ export function Comment({
         <div className="card__button-group">
           {isCurrentUser ? (
             <Fragment>
-              <Button className="card__delete" placeholder={'Delete'} iconSvg={deleteSvg} />
-              <Button className="card__edit" placeholder={'Edit'} iconSvg={editSvg} />
+              <Button className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
+                Delete
+              </Button>
+              <Button className="card__edit" type={'icon-button'} iconSvg={editSvg}>
+                Edit
+              </Button>
             </Fragment>
           ) : (
             <Button
               onClick={() => setDisplay((prevState) => !prevState)}
+              type={'icon-button'}
               className="card__reply"
               placeholder={'Reply'}
               iconSvg={replySvg}
-            />
+            >
+              Reply
+            </Button>
           )}
         </div>
       </section>
