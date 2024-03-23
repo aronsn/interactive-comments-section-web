@@ -1,5 +1,5 @@
 import './App.css';
-import { CommentInput } from './CommentInput/CommentInput';
+import { CommentInput } from './components/CommentInput/CommentInput';
 import { CommentList } from './components/CommentList/CommentList';
 import data from './data.json';
 

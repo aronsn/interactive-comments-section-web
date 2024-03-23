@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../CommentInput/CommentInput.css';
-import { Button } from '../components/Button/Button';
+import './CommentInput.css';
+import { Button } from '../Button/Button';
 
 export function CommentInput({ currentUserImage, placeholder, replyingTo }) {
   const [input, setInput] = useState(replyingTo ? `@${replyingTo}, ` : '');
