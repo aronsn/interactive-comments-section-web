@@ -30,7 +30,7 @@
     width: 100%;
     font-size: var(--fs-paragraphs);
     padding: var(--spacing-xs) var(--spacing-md);
-    min-height: 140px;
+    min-height: 100px;
 }
 
 .form__button {
