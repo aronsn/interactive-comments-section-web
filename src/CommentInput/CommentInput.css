@@ -47,7 +47,6 @@
   }
   
   @media (min-width: 376px) {
-
     .form {
         grid-template-columns: 45px 10fr 2fr ;
         
