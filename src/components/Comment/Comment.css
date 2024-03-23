@@ -1,8 +1,12 @@
+.comment {
+    margin-bottom: var(--spacing-sm);
+}
+
+
 .card {
     background-color: hsl(var(--white));
     border-radius: 6px;
     padding: var(--spacing-sm);
-    margin-bottom: var(--spacing-sm);
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -130,8 +134,10 @@
 }
 
 @media (min-width: 376px) {
+    .comment {
+        margin-bottom: var(--spacing-md);
+    }
     .card {
-        margin-bottom: 20px;
         padding: var(--spacing-md);
         grid-template-columns: 64px 1fr 1fr 1fr;
         grid-template-areas: 
