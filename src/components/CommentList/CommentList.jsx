@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Comment } from '../Comment/Comment';
 import './CommentList.css';
 
-export function CommentList({ comments, currentUserImage }) {
+export function CommentList({ comments, currentUserImage, openModel }) {
   return (
-    <div className="comments">
+    <div className="comments__main-section">
       {comments
         ? comments.map((comment) => (
             <Fragment key={comment.id}>
@@ -16,6 +16,7 @@ export function CommentList({ comments, currentUserImage }) {
                 createdAt={comment.createdAt}
                 comment={comment.content}
                 score={comment.score}
+                openModel={openModel}
               />
 
               <div className="comments__sub-section">
@@ -31,6 +32,7 @@ export function CommentList({ comments, currentUserImage }) {
                         createdAt={reply.createdAt}
                         comment={reply.content}
                         score={reply.score}
+                        openModel={openModel}
                       />
                     ))
                   : null}

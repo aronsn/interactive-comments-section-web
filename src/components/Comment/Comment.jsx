@@ -13,6 +13,7 @@ export function Comment({
   createdAt,
   comment,
   score,
+  openModel,
 }) {
   const [display, setDisplay] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -53,7 +54,7 @@ export function Comment({
         <div className="card__button-group">
           {isCurrentUser ? (
             <Fragment>
-              <Button className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
+              <Button onClick={openModel} className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
                 Delete
               </Button>
               <Button
