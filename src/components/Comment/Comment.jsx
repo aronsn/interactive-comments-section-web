@@ -15,6 +15,8 @@ export function Comment({
   score,
 }) {
   const [display, setDisplay] = useState(false);
+  const [edit, setEdit] = useState(false);
+  const [input, setInput] = useState(`@${replyingTo}, ${comment}`);
 
   return (
     <div className="comment">
@@ -27,10 +29,14 @@ export function Comment({
             <span className="card__createdAt">{createdAt}</span>
           </p>
         </div>
-        <p className="card__paragraph">
-          {replyingTo ? <span>@{replyingTo}&nbsp;</span> : null}
-          {comment}
-        </p>
+        {edit ? (
+          <textarea className={'card__textarea'} value={input} onChange={(e) => setInput(e.target.value)} />
+        ) : (
+          <p className="card__paragraph">
+            {replyingTo ? <span>@{replyingTo}&nbsp;</span> : null}
+            {comment}
+          </p>
+        )}
         <div className="card__feedback">
           <button className="card__feedback-button ">
             <svg width="11" height="11" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +56,12 @@ export function Comment({
               <Button className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
                 Delete
               </Button>
-              <Button className="card__edit" type={'icon-button'} iconSvg={editSvg}>
+              <Button
+                className="card__edit"
+                onClick={() => setEdit((prevState) => !prevState)}
+                type={'icon-button'}
+                iconSvg={editSvg}
+              >
                 Edit
               </Button>
             </Fragment>
@@ -66,6 +77,11 @@ export function Comment({
             </Button>
           )}
         </div>
+        {edit ? (
+          <Button className={'card__update'} type={'box-button'}>
+            UPDATE
+          </Button>
+        ) : null}
       </section>
       {display ? (
         <CommentInput currentUserImage={currentUserImage} replyingTo={username} placeholder={'REPLY'} />

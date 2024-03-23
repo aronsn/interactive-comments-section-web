@@ -61,7 +61,7 @@ body {
     max-width: 725px;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 640px) {
     body {
         min-height: 100vh;
         display: grid;

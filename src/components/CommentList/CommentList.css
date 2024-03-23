@@ -4,7 +4,7 @@
     height: 90%;
 }
 
-@media (min-width: 376px) {
+@media (min-width: 640px) {
     .comments__sub-section {
         padding-left: var(--spacing-xl);
         margin-left: var(--spacing-xl);
