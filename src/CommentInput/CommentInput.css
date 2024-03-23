@@ -1,0 +1,81 @@
+.form {
+    background-color: hsl(var(--white));
+    border-radius: 6px;
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+
+    display: grid;
+    
+    gap: var(--spacing-sm);
+    grid-template-columns: auto 10fr 1fr ;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "input input input"
+        "picture . button";
+}
+
+.form__picture {
+    grid-area: picture;
+    height: 40px;
+    margin: auto 0;
+    
+}
+
+.form__input {
+    line-height: 1.5;
+    grid-area: input;
+    resize: none;
+    border-radius: 8px;
+    border: 1px solid hsl(var(--light-gray));
+    width: 100%;
+    font-size: var(--fs-paragraphs);
+    padding: var(--spacing-sm);
+}
+
+.form__button {
+    grid-area: button;
+    font-size: var(--fs-paragraphs);
+    height: 50px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    background-color: hsl(var(--morderate-blue));
+    color: hsl(var( --white));
+}
+
+.form__button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+
+}
+
+.form__input:focus-visible {
+    border-radius: 8px;
+    border: 1px solid hsl(var(--morderate-blue));
+   
+}
+
+.form__input:focus {
+    outline: none;
+  }
+  
+  @media (min-width: 376px) {
+
+    .form {
+        grid-template-columns: 45px 10fr 2fr ;
+        
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "picture input button";
+        }
+
+        .form__picture {
+            margin: unset;
+            margin-left: auto;
+        }
+
+        .form__button {
+            height: 44px;
+            width: 100px;
+        }
+  }
