@@ -7,7 +7,7 @@ export function CommentList({ comments, currentUserImage, openModel }) {
     <div className="comments__main-section">
       {comments
         ? comments.map((comment) => (
-            <Fragment key={comment.id}>
+            <Fragment key={comment._id}>
               <Comment
                 currentUser={comment.user.username === 'juliusomo'}
                 currentUserImage={currentUserImage}
@@ -23,7 +23,7 @@ export function CommentList({ comments, currentUserImage, openModel }) {
                 {comment.replies
                   ? comment.replies.map((reply) => (
                       <Comment
-                        key={reply.id}
+                        key={reply._id}
                         isCurrentUser={reply.user.username === 'juliusomo'}
                         currentUserImage={currentUserImage}
                         replyingTo={reply.replyingTo}
