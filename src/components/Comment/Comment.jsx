@@ -23,7 +23,11 @@ export function Comment({
     <div className="comment">
       <section className="card">
         <div className="card__flex-header">
-          <img className="card__picture" src={userImage} alt="profile-picture" />
+          {userImage !== null ? (
+            <img className="card__picture" src={userImage} alt="profile-picture" />
+          ) : (
+            <div className="card__picture--no-picture"></div>
+          )}
           <p className="card__name">
             {username}
             {isCurrentUser ? <span className="card__tag">you</span> : null}
