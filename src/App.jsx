@@ -8,6 +8,7 @@ import { fetchUtil } from './utils/fetchUtil';
 
 function App() {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const [display, setDisplay] = useState(false);
 
   useEffect(() => {
@@ -18,13 +19,17 @@ function App() {
         setData(res);
         console.log(res);
       })
-      .catch(setData(undefined));
+      .catch((e) => {
+        setData(undefined);
+        setError(e);
+      });
   }, []);
 
   if (data === undefined) {
     return (
       <div className="comment-section">
-        <span>Could not fetch comments. Contact admin.</span>
+        Could not fetch comments. <br />
+        {error.message}.
       </div>
     );
   }
