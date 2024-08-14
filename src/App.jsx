@@ -12,12 +12,11 @@ function App() {
   const [display, setDisplay] = useState(false);
 
   useEffect(() => {
-    const URL = 'http://localhost:5050/api/comments';
+    const URL = 'http://localhost:5051/api/comments';
 
     fetchUtil(URL, 'GET')
       .then((res) => {
         setData(res);
-        console.log(res);
       })
       .catch((e) => {
         setData(undefined);
@@ -34,6 +33,17 @@ function App() {
     );
   }
 
+  const filterComment = (id) => {
+    setData(
+      data
+        .filter((comment) => comment._id !== id)
+        .map((comment) => ({
+          ...comment,
+          replies: comment.replies.filter((reply) => reply._id !== id),
+        }))
+    );
+  };
+
   return (
     <div className="comment-section">
       {data !== null ? (
@@ -41,10 +51,11 @@ function App() {
           <CommentList
             comments={data}
             currentUserImage={dataJSON.currentUser.image.png}
-            openModel={() => setDisplay(true)}
+            setModal={() => setDisplay((prevState) => !prevState)}
+            modal={display}
+            filterComment={filterComment}
           />
           <CommentInput currentUserImage={dataJSON.currentUser.image.png} placeholder={'SEND'} />
-          {display ? <DeleteCommentModal closeModal={() => setDisplay(false)} /> : null}
         </>
       ) : (
         <span>Loading comments...</span>

@@ -3,8 +3,10 @@ import { CommentInput } from '../CommentInput/CommentInput';
 import { Button } from '../Button/Button';
 import { replySvg, editSvg, deleteSvg } from '../../utils/exportAssets';
 import './Comment.css';
+import { DeleteCommentModal } from '../DeleteCommentModal/DeleteCommentModal';
 
 export function Comment({
+  id,
   isCurrentUser,
   currentUserImage,
   replyingTo,
@@ -13,7 +15,9 @@ export function Comment({
   createdAt,
   comment,
   score,
-  openModel,
+  setModal,
+  modal,
+  filterComment,
 }) {
   const [display, setDisplay] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -57,8 +61,8 @@ export function Comment({
         </div>
         <div className="card__button-group">
           {isCurrentUser ? (
-            <Fragment>
-              <Button onClick={openModel} className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
+            <>
+              <Button onClick={setModal} className="card__delete" type={'icon-button'} iconSvg={deleteSvg}>
                 Delete
               </Button>
               <Button
@@ -69,7 +73,7 @@ export function Comment({
               >
                 Edit
               </Button>
-            </Fragment>
+            </>
           ) : (
             <Button
               onClick={() => setDisplay((prevState) => !prevState)}
@@ -91,6 +95,7 @@ export function Comment({
       {display ? (
         <CommentInput currentUserImage={currentUserImage} replyingTo={username} placeholder={'REPLY'} />
       ) : null}
+      {modal ? <DeleteCommentModal closeModal={setModal} filterComment={filterComment} id={id} /> : null}
     </div>
   );
 }

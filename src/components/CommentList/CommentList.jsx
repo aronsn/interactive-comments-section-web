@@ -2,13 +2,14 @@ import React, { Fragment } from 'react';
 import { Comment } from '../Comment/Comment';
 import './CommentList.css';
 
-export function CommentList({ comments, currentUserImage, openModel }) {
+export function CommentList({ comments, currentUserImage, setModal, modal, filterComment }) {
   return (
     <div className="comments__main-section">
       {comments
         ? comments.map((comment) => (
             <Fragment key={comment._id}>
               <Comment
+                id={comment._id}
                 currentUser={comment.user.username === 'juliusomo'}
                 currentUserImage={currentUserImage}
                 userImage={comment.user.image.png}
@@ -16,13 +17,15 @@ export function CommentList({ comments, currentUserImage, openModel }) {
                 createdAt={comment.createdAt}
                 comment={comment.content}
                 score={comment.score}
-                openModel={openModel}
+                setModal={setModal}
+                modal={modal}
               />
 
               <div className="comments__sub-section">
                 {comment.replies
                   ? comment.replies.map((reply) => (
                       <Comment
+                        id={reply._id}
                         key={reply._id}
                         isCurrentUser={reply.user.username === 'juliusomo'}
                         currentUserImage={currentUserImage}
@@ -32,7 +35,9 @@ export function CommentList({ comments, currentUserImage, openModel }) {
                         createdAt={reply.createdAt}
                         comment={reply.content}
                         score={reply.score}
-                        openModel={openModel}
+                        setModal={setModal}
+                        modal={modal}
+                        filterComment={filterComment}
                       />
                     ))
                   : null}
