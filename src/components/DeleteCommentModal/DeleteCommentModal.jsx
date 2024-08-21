@@ -3,25 +3,25 @@ import './DeleteCommentModal.css';
 import { Button } from '../Button/Button';
 import { fetchUtil } from '../../utils/fetchUtil';
 
-export const DeleteCommentModal = ({ closeModal, filterComment, id }) => {
+export const DeleteCommentModal = ({ closeModal, replyingTo, filterComment, id }) => {
   const deleteComment = () => {
     // Handle different request based on whether its comments or reply table
-    const URL = 'http://localhost:5051/api/comments/reply';
+    let URL = 'http://localhost:5051/api/comments';
+
+    if (replyingTo) {
+      URL = 'http://localhost:5051/api/comments/reply';
+    }
+
     const body = {
       id: id,
     };
 
     fetchUtil(URL, 'DELETE', body)
       .then((res) => {
-        setData(res);
+        filterComment(id);
       })
-      .catch((e) => {
-        setData(undefined);
-        setError(e);
-      });
-
-    filterComment(id);
-    closeModal();
+      .catch((e) => {})
+      .finally(closeModal());
   };
 
   return (
