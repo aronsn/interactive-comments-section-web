@@ -1,9 +1,10 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { CommentInput } from '../CommentInput/CommentInput';
 import { Button } from '../Button/Button';
 import { replySvg, editSvg, deleteSvg } from '../../utils/exportAssets';
 import './Comment.css';
 import { DeleteCommentModal } from '../DeleteCommentModal/DeleteCommentModal';
+import { formatDate } from '../../utils/format';
 
 export function Comment({
   id,
@@ -35,7 +36,7 @@ export function Comment({
           <p className="card__name">
             {username}
             {isCurrentUser ? <span className="card__tag">you</span> : null}
-            <span className="card__createdAt">{createdAt}</span>
+            <span className="card__createdAt">{formatDate(createdAt)}</span>
           </p>
         </div>
         {edit ? (
@@ -95,7 +96,14 @@ export function Comment({
       {display ? (
         <CommentInput currentUserImage={currentUserImage} replyingTo={username} placeholder={'REPLY'} />
       ) : null}
-      {modal ? <DeleteCommentModal closeModal={setModal} filterComment={filterComment} id={id} /> : null}
+      {modal ? (
+        <DeleteCommentModal
+          closeModal={setModal}
+          replyingTo={replyingTo ? true : false}
+          filterComment={filterComment}
+          id={id}
+        />
+      ) : null}
     </div>
   );
 }
