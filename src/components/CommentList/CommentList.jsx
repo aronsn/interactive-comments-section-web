@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Comment } from '../Comment/Comment';
 import './CommentList.css';
 
-export function CommentList({ comments, currentUserImage, setModal, modal, filterComment }) {
+export function CommentList({ comments, currentUserImage }) {
   return (
     <div className="comments__main-section">
       {comments
@@ -10,15 +10,13 @@ export function CommentList({ comments, currentUserImage, setModal, modal, filte
             <Fragment key={comment._id}>
               <Comment
                 id={comment._id}
-                currentUser={comment.user.username === 'juliusomo'}
+                isCurrentUser={comment.user.username === 'juliusomo'}
                 currentUserImage={currentUserImage}
                 userImage={comment.user.image.png}
                 username={comment.user.username}
                 createdAt={comment.createdAt}
                 comment={comment.content}
                 score={comment.score}
-                setModal={setModal}
-                modal={modal}
               />
 
               <div className="comments__sub-section">
@@ -35,9 +33,6 @@ export function CommentList({ comments, currentUserImage, setModal, modal, filte
                         createdAt={reply.createdAt}
                         comment={reply.content}
                         score={reply.score}
-                        setModal={setModal}
-                        modal={modal}
-                        filterComment={filterComment}
                       />
                     ))
                   : null}
