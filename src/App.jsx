@@ -2,19 +2,20 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { CommentInput } from './components/CommentInput/CommentInput';
 import { CommentList } from './components/CommentList/CommentList';
-import { DeleteCommentModal } from './components/DeleteCommentModal/DeleteCommentModal';
 import dataJSON from './data.json';
 import { fetchUtil } from './utils/fetchUtil';
+import { CommentsProvider } from './utils/CommentsProvider';
 
 function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [display, setDisplay] = useState(false);
 
   useEffect(() => {
-    const URL = 'http://localhost:5051/api/comments';
+    fetchComments();
+  }, []);
 
-    fetchUtil(URL, 'GET')
+  const fetchComments = () => {
+    fetchUtil('GET')
       .then((res) => {
         setData(res);
       })
@@ -22,7 +23,15 @@ function App() {
         setData(undefined);
         setError(e);
       });
-  }, []);
+  };
+
+  const addComment = async (body) => {
+    try {
+      await fetchUtil('POST', body);
+    } catch (error) {
+      throw Error('Could not create comment');
+    }
+  };
 
   if (data === undefined) {
     return (
@@ -33,30 +42,13 @@ function App() {
     );
   }
 
-  const filterComment = (id) => {
-    setData(
-      data
-        .filter((comment) => comment._id !== id)
-        .map((comment) => ({
-          ...comment,
-          replies: comment.replies.filter((reply) => reply._id !== id),
-        }))
-    );
-  };
-
   return (
     <div className="comment-section">
       {data !== null ? (
-        <>
-          <CommentList
-            comments={data}
-            currentUserImage={dataJSON.currentUser.image.png}
-            setModal={() => setDisplay((prevState) => !prevState)}
-            modal={display}
-            filterComment={filterComment}
-          />
+        <CommentsProvider fetchComments={fetchComments} addComment={addComment}>
+          <CommentList comments={data} currentUserImage={dataJSON.currentUser.image.png} />
           <CommentInput currentUserImage={dataJSON.currentUser.image.png} placeholder={'SEND'} />
-        </>
+        </CommentsProvider>
       ) : (
         <span>Loading comments...</span>
       )}
