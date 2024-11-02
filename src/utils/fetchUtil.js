@@ -1,5 +1,7 @@
 
-export const fetchUtil = async (url, method, body) => {
+export const fetchUtil = async (method, body) => {
+    const url = 'http://localhost:5050/api/comments';
+
     try {
         const options = {
             method: method,
