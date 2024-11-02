@@ -122,6 +122,19 @@
   font-weight: 600;
 }
 
+.card__feedback-button:hover {
+  cursor: pointer;
+}
+
+.card__feedback-button:hover svg {
+  transition: 0.1s ease;
+  fill: hsl(var(--morderate-blue));
+}
+
+.card__feedback-fill svg {
+  fill: hsl(var(--morderate-blue));
+}
+
 .card__update {
   grid-area: update;
   margin-bottom: var(--spacing-sm);
@@ -135,15 +148,6 @@
   gap: 6px;
   margin-top: 6px;
   margin-bottom: auto;
-}
-
-.card__feedback-button:hover {
-  cursor: pointer;
-}
-
-.card__feedback-button:hover svg {
-  transition: 0.1s ease;
-  fill: hsl(var(--morderate-blue));
 }
 
 .card__reply {
