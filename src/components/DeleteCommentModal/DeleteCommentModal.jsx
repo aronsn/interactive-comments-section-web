@@ -2,26 +2,21 @@ import React from 'react';
 import './DeleteCommentModal.css';
 import { Button } from '../Button/Button';
 import { fetchUtil } from '../../utils/fetchUtil';
+import { useFetchCommentsContext } from '../../utils/CommentsProvider';
 
-export const DeleteCommentModal = ({ closeModal, replyingTo, filterComment, id }) => {
+export const DeleteCommentModal = ({ closeModal, username, id }) => {
+  const { fetchComments } = useFetchCommentsContext();
   const deleteComment = () => {
-    // Handle different request based on whether its comments or reply table
-    let URL = 'http://localhost:5051/api/comments';
-
-    if (replyingTo) {
-      URL = 'http://localhost:5051/api/comments/reply';
-    }
-
     const body = {
       id: id,
+      username: username,
     };
 
-    fetchUtil(URL, 'DELETE', body)
-      .then((res) => {
-        filterComment(id);
-      })
-      .catch((e) => {})
-      .finally(closeModal());
+    fetchUtil('DELETE', body).then(() => {
+      fetchComments();
+    });
+
+    closeModal();
   };
 
   return (
