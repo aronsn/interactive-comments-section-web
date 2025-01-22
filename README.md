@@ -1,6 +1,6 @@
 # Frontend Mentor - Interactive comments section solution
 
-![Design preview for the Interactive comments section coding challenge](./design/desktop-preview.jpg)
+
 
 This is a solution to the [Interactive comments section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
@@ -36,8 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Interactive comments section](https://interactive-comments-section-api-production.up.railway.app/)
 
 ## My process
 
@@ -54,8 +53,14 @@ Users should be able to:
 
 ### What I learned
 
+- How to deploy an app to the internet with other services.
+- How to bundle the frontend and make the backend serve the bundled frontend files.
+- How to build a REST API and program server logic.
+- How to build with a document-based database
 
 ### Continued development
+
+- Choose hosting options that are better localized
 
 ## Author
 
