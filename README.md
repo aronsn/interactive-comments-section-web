@@ -55,8 +55,8 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Express]() - JS - [Express]() - JS framework 
-- [MongoDB]() - Database 
+- [Express](https://expressjs.com/) - Web application framework
+- [MongoDB](https://www.mongodb.com/) - Document database
 
 ### What I learned
 
@@ -68,6 +68,7 @@ Users should be able to:
 ### Continued development
 
 - Choose hosting options that are better localized
+- Containerize the stack to mimick production environment or make developement more "easier".
 
 ## Author
 
