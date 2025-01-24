@@ -47,7 +47,7 @@ function App() {
       {data !== null ? (
         <CommentsProvider fetchComments={fetchComments} addComment={addComment}>
           <CommentList comments={data} currentUserImage={dataJSON.currentUser.image.png} />
-          <CommentInput currentUserImage={dataJSON.currentUser.image.png} placeholder={'SEND'} />
+          <CommentInput currentUserImage={'/avatars/image-juliusomo.png'} placeholder={'SEND'} />
         </CommentsProvider>
       ) : (
         <span>Loading comments...</span>

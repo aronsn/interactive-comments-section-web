@@ -1,6 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const fetchUtil = async (method, body) => {
-    const url = '/api/comments';
+    const url = `${API_URL}/api/comments`;
 
     try {
         const options = {
